@@ -6,7 +6,7 @@ class Position {
     public Position (int x, int y) {
         this.x = x;
         this.y = y;
-        System.out.println("Wir haben ein Positionselement erstellt! \nx: "+x+" \ny: "+y);
+        //System.out.println("Wir haben ein Positionselement erstellt! \nx: "+x+" \ny: "+y+"\nYeah!\nUnd zwar: "+this);
     }
 
     //Getter

@@ -8,8 +8,22 @@ public class Main {
 
         //System.out.println(einseins);
         //System.out.println(zweizwei);
-        boolean tf = zweiteseinseins.equals(einseins);
-        System.out.println("Equals-Test: "+tf);
+        //boolean tf = zweiteseinseins.equals(einseins);
+        //System.out.println("Equals-Test: "+tf);
+
+        Rotkaeppchen r = new Rotkaeppchen(zweizwei);
+        System.out.println("Rotkaeppchens Position:");
+        r.getPosition();
+        System.out.println("OK, Kaeppchen, dann geh mal zweimal hoch und zweimal rechts:");
+        r.geheHoch();
+        r.geheHoch();
+        r.geheRechts();
+        r.geheRechts();
+        System.out.println("Rotkaeppchens Position:");
+        r.getPosition();
+        r.istNochLebendig();
+        r.gesundheitVerringern(12);
+        r.istNochLebendig();
     }
 
 }
