@@ -43,7 +43,7 @@ class Rotkaeppchen extends VerwunschenerWald {
     }
     public boolean istNochLebendig() {
         if (gesundheit > 0) {
-            System.out.println("Ja, Gesundheitsstatus: "+gesundheit);
+            System.out.println("Still alive Biatch! Gesundheitsstatus: "+gesundheit);
             return true;
         }
         else {
