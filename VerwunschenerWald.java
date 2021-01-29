@@ -11,7 +11,7 @@ abstract class VerwunschenerWald {
 
     // Getter
     public Position getPosition() {
-        System.out.println("Positionsabruf von Objekt '"+position+"': \nx: "+position.getX()+"\ny: "+position.getY());
+        //System.out.println("Positionsabruf von Objekt '"+position+"': \nx: "+position.getX()+"\ny: "+position.getY());
         return position;
     }
     public int getSchaden() {

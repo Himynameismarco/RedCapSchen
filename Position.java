@@ -45,7 +45,7 @@ class Position {
         // gemacht werden.
 
         // Hier erstellen wir unser Positionsobjekt für die Methode aus dem eingegebenen
-        Position that = (Position) o; //casten (?)
+        Position that = (Position) o; //casten
         // Jetzt: ist x wirklich x und y wirklich y?
         return this.getX() == that.getX()
                    && this.getY() == that.getY();

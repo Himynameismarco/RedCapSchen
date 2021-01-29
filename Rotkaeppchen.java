@@ -7,30 +7,20 @@ class Rotkaeppchen extends VerwunschenerWald {
         System.out.println("Rotkaeppchen wurde geboren!");
     }
     public void geheHoch() {
-        Position pr = this.getPosition();
-        int x = pr.getX();
-        int y = pr.getY();
-        //System.out.println("y vor dem Hochgehen: "+pr.getY());
-        pr.setY(y - 1);
-        //System.out.println("y nach dem Hochgehen: "+pr.getY());
+        int ry = this.getPosition().getY();
+        this.getPosition().setY(ry - 1);
     }
     public void geheRunter() {
-        Position pr = this.getPosition();
-        int x = pr.getX();
-        int y = pr.getY();
-        pr.setY(y + 1);
+        int ry = this.getPosition().getY();
+        this.getPosition().setY(ry + 1);
     }
     public void geheLinks() {
-        Position pr = this.getPosition();
-        int x = pr.getX();
-        int y = pr.getY();
-        pr.setX(x - 1);
+        int rx = this.getPosition().getX();
+        this.getPosition().setX(rx - 1);
     }
     public void geheRechts() {
-        Position pr = this.getPosition();
-        int x = pr.getX();
-        int y = pr.getY();
-        pr.setX(x + 1);
+        int rx = this.getPosition().getX();
+        this.getPosition().setX(rx + 1);
     }
     public void gesundheitVerringern(int wert) {
         if (gesundheit - wert > 0) {
