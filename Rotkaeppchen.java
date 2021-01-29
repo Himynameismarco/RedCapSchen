@@ -4,7 +4,7 @@ class Rotkaeppchen extends VerwunschenerWald {
     public Rotkaeppchen(Position position) {
         super(position); //Ich glaube, hier wird jetzt einfach VerwunschenerWald aufgerufen!
         // Das heißt auch, wir brauchen keine Getter hier.
-        System.out.println("Rotkaeppchen wurde geboren!");
+        //System.out.println("Rotkaeppchen wurde geboren! :)");
     }
     public void geheHoch() {
         int ry = this.getPosition().getY();

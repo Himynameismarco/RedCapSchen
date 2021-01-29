@@ -10,6 +10,7 @@ class Maerchenwelt {
     // in der ersten Dimension und vier in der zweiten.
     private Oma oma;
     private Rotkaeppchen rotkaeppchen;
+    private Position ziel;
 
     // Konstruktor mit Initialisierung des Waldes und Positionen aller Figuren innerhalb des Waldes
     public Maerchenwelt(int x, int y, int gefahrenAnzahl, int baumAnzahl) {
@@ -43,23 +44,17 @@ class Maerchenwelt {
         int ox = (int)(Math.random() * rangeo) + min;
         int oy = (int)(Math.random() * rangeo) + min;
         Position startpunkto = new Position(ox, oy);
-        System.out.println("Oma lebt in der Maerchenwelt: Sie chillt at: "+ox+" "+oy);
+        //System.out.println("Oma lebt in der Maerchenwelt: Sie chillt at: "+ox+" "+oy);
         this.oma = new Oma(startpunkto);
         this.karte[ox][oy] = this.oma;
 
         // Ziel erstellen
-        Position ziel = new Position(this.oma.getPosition().getX(),this.oma.getPosition().getY());
+        this.ziel  = new Position(this.oma.getPosition().getX(),this.oma.getPosition().getY());
 
         // Bäume erstellen (über die Methode baeumeErstellen() auf Karte setzen) und in die Karte einfuegen!
         this.karte = this.baeumeErstellen(baumAnzahl);
 
-        System.out.println("Ok, fertig: Es wurde eine Maerchenwelt erschaffen! :) \nKarte: ");
-        // Karte ausgeben
-        this.printWald();
-
-        // Weg finden
-        this.wegFinden(ziel);
-
+        //System.out.println("Ok, fertig: Es wurde eine Maerchenwelt erschaffen! :) ");
     } // Ende Riesenkonstruktor Maerchenwelt
 
     // Meine Methode zum Baeume erstellen:
@@ -67,7 +62,7 @@ class Maerchenwelt {
         // Diese Funktion wird angewendet auf ein VerwunschenerWald[][] Objekt (karte) und wird ein verändertes Objekt des Typs zurückgeben.
         //public VerwunschenerWald[][] baeumeErstellen() {
         int baumcount = 0; // als Test, um meine Bäume zu zählen --> So bin ich drauf gekommen, dass ich immer baumAnzahlxbaumAnzahl und nicht baumAnzahl Bäume erstellt habe.
-        System.out.println("So viele Bäume sollen erstellt werden: "+baumAnzahl);
+        //System.out.println("So viele Bäume sollen erstellt werden: "+baumAnzahl);
         // Nested for-loop um auf Arrays zuzugreifen
         for (int zaehler1 = 0; zaehler1 < baumAnzahl; zaehler1++) {
             if (baumcount >= baumAnzahl) {
@@ -97,7 +92,7 @@ class Maerchenwelt {
                 }
             }
         }
-        System.out.println("So viele Bäume wurden erstellt: "+baumcount);
+        //System.out.println("So viele Bäume wurden erstellt: "+baumcount);
         return this.karte;
     }
 
@@ -185,7 +180,7 @@ class Maerchenwelt {
                         if (((ry - 1) < 0) || (this.karte[rx][ry - 1] instanceof Baum)) {
                             //System.out.println("Rotkaeppchen waere von der Karte gefallen oder auf einen Baum gestossen, wenn es hoch gegangen waere.");
                         } else {
-                            System.out.println("Rotkaeppchen geht hoch.");
+                            //System.out.println("Rotkaeppchen geht hoch.");
                             // Damit Rotkaeppchen nicht zweimal auf der Karte auftaucht, setzen wir seine aktuelle Position auf null
                             this.karte[this.rotkaeppchen.getPosition().getX()][this.rotkaeppchen.getPosition().getY()] = null;
                             // Dann macht Rotkaeppchen seine Bewegung
@@ -203,7 +198,7 @@ class Maerchenwelt {
                         if (((ry + 1) > y - 1) || (this.karte[rx][ry + 1] instanceof Baum)) {
                             //System.out.println("Rotkaeppchen waere von der Karte gefallen oder auf einen Baum gestossen, wenn es runter gegangen waere.");
                         } else {
-                            System.out.println("Rotkaeppchen geht runter.");
+                            //System.out.println("Rotkaeppchen geht runter.");
                             this.karte[this.rotkaeppchen.getPosition().getX()][this.rotkaeppchen.getPosition().getY()] = null;
                             this.rotkaeppchen.geheRunter();
                             //System.out.println("Rotkaeppchen X: "+this.rotkaeppchen.getPosition().getX()+" Y: "+this.rotkaeppchen.getPosition().getY());
@@ -216,7 +211,7 @@ class Maerchenwelt {
                         if (((rx - 1) < 0) || (this.karte[rx - 1][ry] instanceof Baum)) {
                             //System.out.println("Rotkaeppchen waere von der Karte gefallen oder auf einen Baum gestossen, wenn es links gegangen waere.");
                         } else {
-                            System.out.println("Rotkaeppchen geht links.");
+                            //System.out.println("Rotkaeppchen geht links.");
                             this.karte[this.rotkaeppchen.getPosition().getX()][this.rotkaeppchen.getPosition().getY()] = null;
                             this.rotkaeppchen.geheLinks();
                             //System.out.println("Rotkaeppchen X: "+this.rotkaeppchen.getPosition().getX()+" Y: "+this.rotkaeppchen.getPosition().getY());
@@ -229,7 +224,7 @@ class Maerchenwelt {
                         if (((rx + 1) > x - 1) || (this.karte[rx + 1][ry] instanceof Baum)) {
                             //System.out.println("Rotkaeppchen waere von der Karte gefallen oder auf einen Baum gestossen, wenn es rechts gegangen waere.");
                         } else {
-                            System.out.println("Rotkaeppchen geht rechts.");
+                            //System.out.println("Rotkaeppchen geht rechts.");
                             this.karte[this.rotkaeppchen.getPosition().getX()][this.rotkaeppchen.getPosition().getY()] = null;
                             this.rotkaeppchen.geheRechts();
                             //System.out.println("Rotkaeppchen X: "+this.rotkaeppchen.getPosition().getX()+" Y: "+this.rotkaeppchen.getPosition().getY());
@@ -242,53 +237,28 @@ class Maerchenwelt {
                         break;
                 }
             } else {
-                System.out.println("Rotkaeppchen ist bei Oma angekommen! :) ");
+                //System.out.println("Rotkaeppchen ist bei Oma angekommen! :) ");
                 break;
             }
 
         }
-        this.printWald();
-        System.out.println(positionen);
+        //this.printWald();
+        //System.out.println(positionen);
         return positionen;
     }
 
-    public static void main(String[] args) {
+    public void start() {
+        // Karte ausgeben
+        this.printWald();
 
-        // TEST POSITION
-        //Position einseins = new Position(1, 1);
-        //Position zweizwei = new Position(2, 2);
-        //Position zweiteseinseins = new Position(1, 1);
+        // Weg finden
+        ArrayList<Position> meinePositionen = this.wegFinden(ziel);
 
-        // TEST EQUALS
-        //System.out.println(einseins);
-        //System.out.println(zweizwei);
-        //boolean tf = zweiteseinseins.equals(einseins);
-        //System.out.println("Equals-Test: "+tf);
-
-        // TEST ROTKAEPPCHEN
-        //Rotkaeppchen r = new Rotkaeppchen(zweizwei);
-        //System.out.println("Rotkaeppchens Position:");
-        //r.getPosition();
-        //System.out.println("OK, Kaeppchen, dann geh mal zweimal hoch und zweimal rechts:");
-        //r.geheHoch();
-        //r.geheHoch();
-        //r.geheRechts();
-        //r.geheRechts();
-        //System.out.println("Rotkaeppchens Position:");
-        //r.getPosition();
-        //r.istNochLebendig();
-        //r.gesundheitVerringern(12);
-        //r.istNochLebendig();
-
-        // TEST MAERCHENWELT
-        Maerchenwelt mw = new Maerchenwelt(15,15,40,20);
-
-        // TEST BEWEGUNGEN
-        //Position ziel = new Position(5,5);
-        //mw.wegFinden(ziel);
-        //mw.printKarte();
-
-        //Ich will eine Methode zum Printen der Karte bauen - aber ich kriegs nicht hin... wann anders.
-        //public void printKarte(VerwunschenerWald[][] mw) {}
+        if (meinePositionen.get(meinePositionen.size()-1).equals(ziel)) {
+            System.out.println("Rotkaeppchen ist bei Oma angekommen.");
+        }
+        else {
+            System.out.println("Rotkaeppchen hat sich auf dem Weg zur Oma verlaufen");
+        }
     }
 }
