@@ -17,6 +17,7 @@ abstract class VerwunschenerWald {
     public int getSchaden() {
         return schaden;
         }
+
     // Jedes Element, das von der Oberklasse VerwunschenerWald erbt, muss also einen Namen bekommen (diese Methode implementieren).
     public abstract String getName();
 }

@@ -1,4 +1,4 @@
-class Rotkaeppchen extends VerwunschenerWald {
+class Rotkaeppchen extends VerwunschenerWald implements Person {
     private int gesundheit = 100; //Inititalwert
 
     public Rotkaeppchen(Position position) {
@@ -33,15 +33,41 @@ class Rotkaeppchen extends VerwunschenerWald {
     }
     public boolean istNochLebendig() {
         if (gesundheit > 0) {
-            System.out.println("Still alive Biatch! Gesundheitsstatus: "+gesundheit);
+            //System.out.println("Still alive Biatch! Gesundheitsstatus: "+gesundheit);
             return true;
         }
         else {
+            System.out.println("\n \n :'( *wolgaliedspiel* :'(\n \n ");
             return false;
         }
     }
     public String getName() {
         return "R";
+    }
+
+    public int getGesundheit() {
+        return gesundheit;
+    }
+
+    public void setGesundheit(int gesundheit) {
+        this.gesundheit = gesundheit;
+    }
+
+    @Override
+    public void sprechen(Person konversationspartner, int zaehler) {
+        switch (zaehler) {
+            case 1:
+                System.out.println("Hallo, Oma");
+                zaehler++;
+                break;
+            case 3:
+                System.out.println("Tschuess, Oma");
+                zaehler++;
+                break;
+            default:
+                System.out.println("Rotkaeppchen default");
+                return;
+        }
     }
 
 }

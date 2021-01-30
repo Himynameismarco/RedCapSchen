@@ -1,7 +1,7 @@
 public class Maerchen {
     public static void main(String[] args) {
 
-        Maerchenwelt mw = new Maerchenwelt(40,10,0,20);
+        Maerchenwelt mw = new Maerchenwelt(60,30,100,50);
         mw.start();
 
 
